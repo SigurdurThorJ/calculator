@@ -1,0 +1,29 @@
+body {
+   display: flex;
+   justify-content: center;
+   align-content: center;
+   
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.display {
+    align-self: flex-end;
+}
+
+button {
+    height: 45px;
+    width: 45px;
+    margin-top: 4px;
+}
+
+.clear-btn {
+    width: 94px;
+}
+
+.delete-btn {
+    width: 94px;
+}
