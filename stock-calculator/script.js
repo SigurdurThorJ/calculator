@@ -1,3 +1,4 @@
+
 class Calculator {
     constructor(previousOperandTextElement, currentOperandTextElement) {
         this.previousOperandTextElement = previousOperandTextElement
@@ -93,6 +94,26 @@ const deleteButton = document.querySelector('[data-delete]')
 const allClearButton = document.querySelector('[data-all-clear]')
 const previousOperandTextElement = document.querySelector('[data-previous-operand]')
 const currentOperandTextElement = document.querySelector('[data-current-operand]')
+const stockSymbolInput = document.getElementById('stock-symbol');
+const fetchStockDataButton = document.getElementById('fetch-stock-data');
+const stockPriceDisplay = document.getElementById('stock-price');
+
+fetchStockDataButton.addEventListener('click', fetchStockData);
+
+async function fetchStockData() {
+    const stockSymbol = stockSymbolInput.value;
+    const apiUrl = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${stockSymbol}&apikey=TXPOMXHCHYLIXEJM`;
+
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        const stockPrice = data["Global Quote"]["05. price"];
+        stockPriceDisplay.textContent = `Price: $${stockPrice}`;
+    } catch (error) {
+        console.error('Error fetching stock data:', error);
+        stockPriceDisplay.textContent = 'Error fetching data';
+    }
+}
 
 const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
 
@@ -110,17 +131,17 @@ operationButton.forEach(button => {
     })
 })
 
-equalsButton.addEventListener('click', button => {
+equalsButton.addEventListener('click', () => {
     calculator.compute()
     calculator.updateDisplay()
 })
 
-allClearButton.addEventListener('click', button => {
+allClearButton.addEventListener('click', () => {
     calculator.clear()
     calculator.updateDisplay()
 })
 
-deleteButton.addEventListener('click', button => {
+deleteButton.addEventListener('click', () => {
     calculator.delete()
     calculator.updateDisplay()
 })

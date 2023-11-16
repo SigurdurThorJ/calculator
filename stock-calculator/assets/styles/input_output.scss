@@ -1,0 +1,56 @@
+.output {
+    grid-column: 1 / -1;
+    background-color: rgb(0 0 0 / 75%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .previous-operand {
+    color: rgb(255 255 255 / 75%);
+    font-size: 1.5rem;
+}
+
+.output .current-operand {
+    color: white;
+    font-size: 2.5rem;
+}
+
+.stock-market-section {
+    width: 400px; 
+    margin: 20px auto; 
+    background-color: rgb(255 255 255 / 80%);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+    display: grid;
+    justify-content: center;
+}
+
+.stock-market-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.input-group, .output-group {
+    margin-bottom: 15px;
+}
+
+.input-group label, .output-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+
+.output-group span {
+    display: block;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+}

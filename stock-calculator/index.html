@@ -2,11 +2,24 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width", inital-scale="1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Calculator</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="/style.css">
     </head>
     <body>
+        <div class="stock-market-section">
+            <h2>Stock Market Data</h2>
+            <div class="input-group">
+                <label for="stock-symbol">Stock Symbol:</label>
+                <input type="text" id="stock-symbol" placeholder="e.g., AAPL">
+            </div>
+            <button id="fetch-stock-data">Get Stock Data</button>
+            <div class="output-group">
+                <label>Current Stock Price:</label>
+                <span id="stock-price">-</span>
+            </div>
+        </div>
+
         <div class="calculator-grid">
             <div class="output">
                 <div data-previous-operand class="previous-operand"></div>
@@ -32,7 +45,7 @@
             <button data-equals class="span-two">=</button>
         </div>
 
-
+        <script src="main.js"></script>
         <script src="script.js"></script>
     </body>
 </html>
